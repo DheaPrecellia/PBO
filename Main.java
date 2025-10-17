@@ -1,55 +1,50 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Tabungan tabungan = new Tabungan();
+        int pilihan;
+        System.out.print("Masukkan nama tabungan anda : ");
+        String namaTabungan = input.nextLine();
+        tabungan.setNama(namaTabungan);
 
-//        System.out.println("Hello world!");
-//
-//        int a = 10;
-//        int b = 5;
-//
-//        int d = a * b;
-//        int e = a / b;
-//
-//        System.out.println("a + b = " + (a + b));
-//        System.out.println("a - b = " + (a - b));
-//        System.out.println("a * b = " + (d));
-//        System.out.println("a / b = " + (e));
+        do{
 
-//        double f = 10.5;
-//        double g = 20.2;
-//        double h = f * g;
-//
-//        System.out.println("f = " + f);
-//        System.out.println("g = " + g);
-//        System.out.println("f * g = " + h);
-//        System.out.println("f / h = " + (f / g));
+        System.out.println();
+        System.out.println("Program Menabung Buat Masa Depan " + tabungan.getNama());
+        System.out.println("Pilih Opsi ");
+        System.out.println("1. Tabung");
+        System.out.println("2. Tarik");
+        System.out.println("3. Cekkkkkk");
+        System.out.println("4. Keluar");
+        System.out.print("SAYA MEMILIHHHHHH : ");
+        pilihan = input.nextInt();
 
-//        String nama = "Dhea Precellia";
-//        long nim=2400018273L;
-//        String kelas="E";
-//        String fakultas="Teknologi Industri";
-//        String prodi="Informatika";
-//
-//        System.out.println(" Nama = " + nama);
-//        System.out.println(" Nim = " + nim);
-//        System.out.println(" Kelas = " + kelas);
-//        System.out.println(" Fakultas = " + fakultas);
-//        System.out.println(" Program Studi = " + prodi);
+        if(pilihan == 1){
+            System.out.print("Masukkan Jumlah Uang Yang Ingin Kamu Tabung : ");
+            double UangMasuk = input.nextDouble();
+            tabungan.setMasukkanUang(UangMasuk);
+            System.out.println("Tabungan Berhasil Masuk Sebesar : "+tabungan.getMasukkanUang());
+            tabungan.menabungBuatMasaDepan(UangMasuk);
+            input.nextLine();
 
-        String antrian[] = {"Joko", "Budi", "Andi", "Siti", "Sita"};
-        System.out.println("Daftar Antrian : ");
-        for(int i = 0; i < antrian.length; i++){
-            System.out.println("Antrian ke-" + (i+1) + " : " + antrian[i]);
+        }else if(pilihan == 2){
+            System.out.print("Mau Narik Berapa Sihhhhh : ");
+            double TarikUang = input.nextDouble();
+            tabungan.setTarikUang(TarikUang);
+            System.out.println("Anda Menarik Uang Sebesar : " + tabungan.getTarikUang());
+            tabungan.NarikUangBuatJajan(TarikUang);
+
+            input.nextLine();
+
+        }else  if(pilihan == 3){
+            System.out.println("Uanng Di Tabungan Kamu Sisaaaa : " + tabungan.getJmlUang());
+        }else {
+            System.out.println("NONEE");
         }
 
-        String mobil[] = new String[5];
-        mobil[0] = "KIA";
-        mobil[1] = "Hyundai";
-        mobil[2] = "Wuling";
-        mobil[3] = "Honda";
-        mobil[4] = "Toyota";
-        for(int i = 0; i<mobil.length; i++){
-            System.out.println("Antrian ke-" + (i+1) + " : " + mobil[i]);
-        }
+        }while(pilihan != 4);
 
+        }
     }
-}
